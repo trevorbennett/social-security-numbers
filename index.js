@@ -1,5 +1,6 @@
 const fs = require('fs');
 
+const SPECIAL_SOCIAL_SECURITY_NUMBERS = ["01-01-0001","078-05-1120","457-55-5462"]
 
 let validAreaNumbers = [];
 for(let step = 1; step < 900; step++) {
