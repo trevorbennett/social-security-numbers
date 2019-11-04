@@ -84,21 +84,22 @@ for(areaNumber of validAreaNumbers){
 }
 
 //invalid serial numbers - VVI
-for(areaNumber of validAreaNumbers){
     let filename = "0000-serial-invalid-social-security-numbers.txt"
     output = ""
+    for(areaNumber of validAreaNumbers){
+
     for(groupNumber of validGroupNumbers){
         for(serialNumber of invalidSerialNumbers){
             output += areaNumber.padStart(3, '0')+"-"+groupNumber.padStart(2, '0')+"-"+serialNumber.padStart(4, '0')+"\n"
         }
     }
+}
 
     fs.writeFile(filename, output, (err) => {
         if (err) throw err;
     
         console.log("Saved: "+filename);
     });
-}
 
 
 //valid ssns - VVV
