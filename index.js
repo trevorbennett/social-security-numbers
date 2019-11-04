@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const SPECIAL_SOCIAL_SECURITY_NUMBERS = ["01-01-0001","078-05-1120","457-55-5462"]
+const SPECIAL_SOCIAL_SECURITY_NUMBERS = ["001-01-0001","078-05-1120","457-55-5462"]
 
 let invalidAreaNumbers = ["0","666"]
 // for(let step = 900;step<999;step++){
@@ -102,24 +102,24 @@ for(areaNumber of validAreaNumbers){
     });
 
 
-//valid ssns - VVV
-// for(areaNumber of validAreaNumbers){
-//     let filename = areaNumber.padStart(3, '0')+"-invalid-social-security-numbers.txt"
-//     output = ""
-//     for(groupNumber of validGroupNumbers){
-//         for(serialNumber of validSerialNumbers){
-//             output += areaNumber.padStart(3, '0')+"-"+groupNumber.padStart(2, '0')+"-"+serialNumber.padStart(4, '0')+"\n"
-//         }
-//     }
+// valid ssns - VVV
+for(areaNumber of validAreaNumbers){
+    let filename = areaNumber.padStart(3, '0')+"-invalid-social-security-numbers.txt"
+    output = ""
+    for(groupNumber of validGroupNumbers){
+        for(serialNumber of validSerialNumbers){
+            output += areaNumber.padStart(3, '0')+"-"+groupNumber.padStart(2, '0')+"-"+serialNumber.padStart(4, '0')+"\n"
+        }
+    }
 
-//     fs.writeFile(filename, output, (err) => {
-//         if (err) throw err;
+    fs.writeFile(filename, output, (err) => {
+        if (err) throw err;
     
-//         console.log("Saved: "+filename);
-//     });
-// }
+        console.log("Saved: "+filename);
+    });
+}
 
-//speacial SSNs, hard coded
+//special SSNs, hard coded
 output = ""
 for(ssn of SPECIAL_SOCIAL_SECURITY_NUMBERS){
 output+=ssn+"\n"
